@@ -1,67 +1,155 @@
-Eventually by HTML5 UP
+Big Picture by HTML5 UP
 html5up.net | @ajlkn
 Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 
 
-Just a simple placeholder template for your kickass app/product/startup/whatever until it
-launches. Includes an email signup form and a cool slideshow background (more on both below).
+This is Big Picture, a simple, single page responsive site template by HTML5 UP.
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+So I've been on a single page kick as of late, partly because I'm lazy, but
+mostly because they kick ass for experimentation. In this case, Big Picture
+makes heavy use of my (tentatively named and soon to be released) "scrollgress"
+and "scrollwatch" jQuery plugins to pull off some interesting effects as you
+scroll around the page. In addition to said interesting effects, Big Picture
+also includes a nice lightbox-style gallery, styling for basic page elements,
+and thoroughly commented code for your editing pleasure (with instructions!
+-- see below).
 
-(* = not included)
+Many thanks to my good friends Felicia Simion (ineedchemicalx.deviantart.com)
+and Michael Domaradzki (md.photomerchant.net) for allowing me to use their amazing
+photos in Big Picture's demo*.
+
+(* = Not included! Only meant for use with my own on-site demo, so please do NOT
+download and/or use any of Felicia's or Michael's work without their explicit
+permission!)
 
 AJ
 aj@lkn.io | @ajlkn
 
-
-Signup Form:
-
-	The signup form won't actually do anything (other than report back with a "thank you" message)
-	until you tie it to either a third party service (eg. MailChimp) or your own hosted solution.
-	In either case, there are two ways to go:
-
-	1. The conventional (non-AJAX) way, which pretty much comes down to pointing the form's "action"
-	attribute to your service/script URL. If you go this route, remove the entire "Signup Form" code
-	block from assets/js/main.js (since it's not needed for this approach).
-
-	-or-
-
-	2. The AJAX way. How you set this up is largely dependent on the service/solution you're using
-	so you'll need to consult their/its documentation. However, I have included some basic code
-	(under "Signup Form" in assets/js/main.js) that will at least let you interact with the
-	form itself.
+PS: Not sure how to get that contact form working? Give formspree.io a try (it's awesome).
 
 
-Slideshow Background:
+Instructions:
 
-	This is pretty straightforward, but there are two JS settings you'll want to be aware of
-	(found under "Slideshow Background" in assets/js/main.js):
+	Overview:
 
-	images
+		Being a single pager, Big Picture should be way simpler to work with than
+		some of the heavier stuff I've released in the past. In fact, aside from
+		a main page <header> and <footer>, it's pretty much just a stack of "main"
+		<section> elements that follow the same basic pattern:
 
-		The list of images to cycle through, given in the following format:
+			<section id="foobar" class="main">
+				<div class="content container">
+					<header>
+						<h2>Foobar</h2>
+					</header>
+					...
+				</div>
+			</section>
 
-			'url': 'alignment'
+		The section can then be assigned a style class to determine its basic
+		look (and, in some cases, its behavior):
 
-		Where 'url' is the image (eg. 'images/foo.jpg', 'http://somewhere.else/foo.jpg'), and
-		'alignment' is how the image should be vertically aligned ('top', 'center', or 'bottom').
+			style1
+				Centered content with an oversized <h2>. Works best when
+				paired with a background image or color.
 
-		Note: Browsers that don't support CSS transitions (like IE<=9) will only see the first image.
+			style2 left
+				Content in a box, anchored to the left side of the window. Works
+				best when paired with a background image or color. If you have
+				"useSectionTransitions" turned on in your settings, the box will
+				slide into view from the left.
 
-	delay
+			style2 right
+				Content in a box, anchored to the right side of the window. Works
+				best when paired with a background image or color. If you have
+				"useSectionTransitions" turned on in your settings, the box will
+				slide into view from the right.
 
-		How long to wait between transitions (in ms). Note that this must be at least twice as long as
-		the transition speed itself (currently 3 seconds).
+			style3 primary
+				Used for generic content. Set against the primary background
+				color (default is white).
+
+			style3 secondary
+				Used for generic content. Set against the secondary background
+				color (default is a light gray).
+
+		Oh, and there are a few (well, two) optional modifier classes you can
+		tack on for additional effects:
+
+			dark
+				Flips the content's color scheme so it shows up better
+				against darker background images and colors.
+
+			fullscreen
+				Makes the section fill the entire window (only if "useFullScreen"
+				is enabled in your settings).
+
+
+	Lightbox Gallery:
+
+ 		The actual gallery function is powered by my Poptrox plugin. For info on
+ 		how that works, go here: github.com/ajlkn/jquery.poptrox
+
+		Each image (the '...' bit in the above examples) should look like this:
+
+			<article class="from-(direction)">
+				<a href="path/to/fullsize.jpg" class="image fit">
+					<img src="path/to/thumbnail.jpg" title="This is the image caption." alt="" />
+				</a>
+			</article>
+
+		The "from-(direction)" class indicates the direction from which the image should
+		slide into view, and can be any of the following:
+
+			from-left
+			from-right
+			from-bottom
+			from-left
+
+		You can also just remove the "from-(direction)" class if you don't want that particular
+		image to slide into view (in which case it'll simply fade in).
+
+
+	Contact Form:
+
+		To get this working, place a script on your server to receive the form data, then
+		point the "action" attribute to it (eg. action="http://mydomain.tld/mail.php").
+		More on how it all works here: 1stwebdesigner.com/tutorials/custom-php-contact-forms
+
+
+    Icons:
+
+     	Powered by Font Awesome. Go here for a full listing of all the icons you can use:
+     	fontawesome.io
+
+
+	Other Stuff:
+
+		- If you don't like the way images are tinted, either change "images/overlay.png"
+		  to something else, or remove all references to it from css/style.css.
 
 
 Credits:
 
 	Demo Images:
-		Unsplash (unsplash.com)
+		Felicia Simion (ineedchemicalx.deviantart.com)
+			"The Swallow Song"
+			"Mind is a clear stage"
+			"The Anonymous Red"
+			"The sparkling shell"
+			"Carry on"
+
+		Michael Domaradzki (md.photomerchant.net)
+			"Vine Country"
+			"Airchitecture II"
+			"Bent IX"
+			"Air Lounge"
 
 	Icons:
 		Font Awesome (fontawesome.io)
 
 	Other:
+		jQuery (jquery.com)
+		Poptrox (github.com/ajlkn/jquery.poptrox)
+		Scrollex (github.com/ajlkn/jquery.scrollex)
 		Responsive Tools (github.com/ajlkn/responsive-tools)
