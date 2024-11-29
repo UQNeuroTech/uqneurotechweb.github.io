@@ -75,6 +75,16 @@
 				.triggerHandler('resize.ie-flexbox-fix');
 
 		}
+	
+	//header
+		document.addEventListener('DOMContentLoaded', () => {
+			const nav = document.querySelector('#header nav');
+			const toggle = document.querySelector('.nav-toggle');
+		
+			toggle.addEventListener('click', () => {
+				nav.classList.toggle('visible');
+			});
+		});
 
 	// Gallery.
 		$window.on('load', function() {
@@ -215,6 +225,7 @@
 			.on('load', function() {
 				$window.trigger('resize');
 			});
+	
 	//expand and collapse
 	document.addEventListener("DOMContentLoaded", function () {
         const buttons = document.querySelectorAll(".read-more-button");
